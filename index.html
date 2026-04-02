@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Doulagar Shivaram — Portfolio</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--p:#0f172a;--a:#6366f1;--a2:#22d3ee;--g:linear-gradient(135deg,#6366f1,#22d3ee);--b:#e2e8f0}
+*{box-sizing:border-box}body{font-family:'DM Sans',sans-serif;background:#f8fafc;color:var(--p);overflow-x:hidden}
+h1,h2,h3,h4,h5,h6,.navbar-brand{font-family:'Syne',sans-serif}
+.navbar{background:rgba(15,23,42,.97)!important;backdrop-filter:blur(12px);border-bottom:1px solid rgba(99,102,241,.2);position:sticky;top:0;z-index:1000}
+.navbar-brand{font-size:1.4rem;font-weight:800;background:var(--g);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-link{color:rgba(255,255,255,.75)!important;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;text-transform:uppercase;border-radius:6px;transition:.2s;cursor:pointer}
+.nav-link:hover,.nav-link.active{color:#fff!important;background:rgba(99,102,241,.15)}
+.nav-link.active{color:var(--a)!important}.navbar-toggler{border-color:rgba(99,102,241,.4)}.navbar-toggler-icon{filter:invert(1)}
+.dropdown-menu{background:#1e293b;border:1px solid rgba(99,102,241,.2);border-radius:10px}
+.dropdown-item{color:rgba(255,255,255,.75);font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer}
+.dropdown-item:hover{background:rgba(99,102,241,.2);color:#fff}
+.page{display:none;animation:fi .4s ease}.page.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.hero{min-height:90vh;background:var(--p);position:relative;overflow:hidden;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(99,102,241,.25),transparent);top:-80px;right:-80px;border-radius:50%}
+.hero::after{content:'';position:absolute;width:350px;height:350px;background:radial-gradient(circle,rgba(34,211,238,.15),transparent);bottom:-40px;left:10%;border-radius:50%}
+.g-text{background:var(--g);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tag{display:inline-block;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.3);color:var(--a2);font-size:.75rem;font-family:'Syne',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:.3rem .9rem;border-radius:100px;margin-bottom:1rem}
+.btn-g{background:var(--g);border:none;color:#fff;font-family:'Syne',sans-serif;font-weight:700;padding:.8rem 1.8rem;border-radius:10px;transition:.3s;box-shadow:0 4px 20px rgba(99,102,241,.35);cursor:pointer}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(99,102,241,.5);color:#fff}
+.btn-ol{background:transparent;border:2px solid rgba(255,255,255,.2);color:rgba(255,255,255,.85);font-family:'Syne',sans-serif;font-weight:700;padding:.8rem 1.8rem;border-radius:10px;transition:.3s;cursor:pointer}
+.btn-ol:hover{border-color:var(--a);color:#fff;background:rgba(99,102,241,.1)}
+.card-c{background:#fff;border:1px solid var(--b);border-radius:18px;padding:1.5rem;transition:.3s;height:100%}
+.card-c:hover{border-color:rgba(99,102,241,.35);box-shadow:0 12px 40px rgba(99,102,241,.1);transform:translateY(-4px)}
+.ibox{width:46px;height:46px;background:rgba(99,102,241,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--a);font-size:1.2rem;margin-bottom:.9rem}
+.stag{display:inline-block;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.25);color:var(--a);font-size:.75rem;font-family:'Syne',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:.3rem .9rem;border-radius:100px;margin-bottom:.75rem}
+.sec-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-1px;line-height:1.1}
+.profile-c{background:var(--p);border-radius:20px;padding:2rem;text-align:center}
+.profile-img{width:100px;height:100px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;font-size:2.8rem;margin:0 auto 1rem;border:4px solid rgba(255,255,255,.1)}
+.pinfo{display:flex;align-items:center;gap:.6rem;color:rgba(255,255,255,.65);font-size:.88rem;margin-bottom:.6rem;text-align:left}
+.pinfo i{color:var(--a);width:16px}
+.skill-label{display:flex;justify-content:space-between;margin-bottom:.4rem;font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem}
+.skill-label span:last-child{color:var(--a)}
+.progress{height:8px;border-radius:100px;background:var(--b)}.progress-bar{background:var(--g);border-radius:100px;transition:width 1.5s ease}
+.bga{background:rgba(99,102,241,.12);color:var(--a);font-family:'Syne',sans-serif;font-weight:700;padding:.3em .7em;border-radius:6px;font-size:.78rem}
+.bgs{background:rgba(34,197,94,.12);color:#16a34a;font-family:'Syne',sans-serif;font-weight:700;padding:.3em .7em;border-radius:6px;font-size:.78rem}
+.bgw{background:rgba(251,191,36,.15);color:#b45309;font-family:'Syne',sans-serif;font-weight:700;padding:.3em .7em;border-radius:6px;font-size:.78rem}
+.table thead th{background:var(--p);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;border:none;padding:.9rem 1.1rem}
+.table tbody td{padding:.8rem 1.1rem;font-size:.88rem;vertical-align:middle;border-color:var(--b)}
+.table tbody tr:hover{background:rgba(99,102,241,.04)}.table{border-radius:16px;overflow:hidden}
+.cert-card{background:#fff;border:1px solid var(--b);border-radius:18px;overflow:hidden;transition:.3s;height:100%}
+.cert-card:hover{border-color:rgba(99,102,241,.35);box-shadow:0 12px 40px rgba(99,102,241,.1);transform:translateY(-4px)}
+.cert-head{background:var(--g);padding:1.75rem;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.form-c{border:1.5px solid var(--b);border-radius:10px;padding:.8rem 1rem;font-family:'DM Sans',sans-serif;font-size:.93rem;transition:.2s;background:#fff;width:100%}
+.form-c:focus{border-color:var(--a);box-shadow:0 0 0 3px rgba(99,102,241,.12);outline:none}
+.form-c.is-invalid{border-color:#ef4444}.form-c.is-valid{border-color:#22c55e}
+.err{color:#ef4444;font-size:.78rem;margin-top:.3rem;font-family:'Syne',sans-serif;font-weight:700;display:none}
+.err.show{display:block}.flabel{font-family:'Syne',sans-serif;font-weight:700;font-size:.875rem;margin-bottom:.4rem;display:block}
+.igt{background:rgba(99,102,241,.08);border:1.5px solid var(--b);border-radius:10px 0 0 10px;color:var(--a);padding:.8rem 1rem;font-size:.95rem;border-right:none}
+.accordion-button{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;background:#fff;color:var(--p);border-radius:10px!important;box-shadow:none!important}
+.accordion-button:not(.collapsed){background:rgba(99,102,241,.06);color:var(--a)}
+.accordion-item{border:1.5px solid var(--b)!important;border-radius:10px!important;margin-bottom:.6rem;overflow:hidden}
+.lgitem{border:1.5px solid var(--b);border-radius:10px;margin-bottom:.5rem;padding:.8rem 1.1rem;display:flex;align-items:center;gap:.7rem;transition:.2s}
+.lgitem:hover{border-color:rgba(99,102,241,.35);background:rgba(99,102,241,.04)}
+.footer{background:var(--p);color:rgba(255,255,255,.5);font-size:.875rem;padding:1.75rem 0;margin-top:4rem}
+.footer a{color:var(--a2);text-decoration:none}.modal-content{border-radius:20px;border:1px solid var(--b)}
+.modal-header{background:var(--p);border-radius:20px 20px 0 0;color:#fff;border:none}.modal-header .btn-close{filter:invert(1)}
+.cslide{background:var(--p);min-height:260px;display:flex;align-items:center;justify-content:center;padding:2.5rem;position:relative}
+.cslide::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.2),transparent);top:-50px;right:-50px}
+.carousel-custom{border-radius:20px;overflow:hidden}
+@media(max-width:768px){.hero{min-height:auto;padding:4rem 0;text-align:center}}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" onclick="go('home')" style="cursor:pointer">Shivaram</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nb"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="nb">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item"><a class="nav-link active" id="n-home" onclick="go('home')"><i class="bi bi-house-door me-1"></i>Home</a></li>
+        <li class="nav-item"><a class="nav-link" id="n-about" onclick="go('about')"><i class="bi bi-person me-1"></i>About</a></li>
+        <li class="nav-item"><a class="nav-link" id="n-qual" onclick="go('qual')"><i class="bi bi-mortarboard me-1"></i>Qualifications</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"><i class="bi bi-code-slash me-1"></i>More</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" onclick="go('skills')"><i class="bi bi-bar-chart me-2"></i>Skills</a></li>
+            <li><a class="dropdown-item" onclick="go('certs')"><i class="bi bi-patch-check me-2"></i>Certifications</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" id="n-contact" onclick="go('contact')"><i class="bi bi-envelope me-1"></i>Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HOME ══ -->
+<div id="page-home" class="page active">
+  <div class="container pt-3">
+    <div class="alert d-flex align-items-center gap-2 py-2" style="background:rgba(99,102,241,.08);border:1.5px solid rgba(99,102,241,.25);border-radius:10px" role="alert">
+      <i class="bi bi-stars" style="color:var(--a)"></i><span style="font-family:'Syne',sans-serif;font-weight:600;font-size:.875rem;color:var(--a)">Open to internship & collaboration — Let's connect!</span>
+      <button type="button" class="btn-close btn-sm ms-auto" data-bs-dismiss="alert"></button>
+    </div>
+  </div>
+  <section class="hero">
+    <div class="container py-5" style="position:relative;z-index:1">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <div class="tag"><i class="bi bi-mortarboard me-1"></i>B.Tech IT — 2nd Year</div>
+          <h1 style="font-size:clamp(2.8rem,6vw,4.8rem);font-weight:800;color:#fff;line-height:1.05;letter-spacing:-2px;margin-bottom:1.25rem">Hi, I'm <span class="g-text">Shivram</span><br/>Doulagar</h1>
+          <p style="color:rgba(255,255,255,.6);font-size:1.1rem;line-height:1.7;max-width:520px;margin-bottom:2rem">A passionate IT student building the future one line of code at a time. I love solving problems, learning new tech, and creating meaningful digital experiences.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <button class="btn btn-g" onclick="go('about')"><i class="bi bi-arrow-right-circle me-2"></i>Explore My Work</button>
+            <button class="btn btn-ol" onclick="go('contact')"><i class="bi bi-chat-dots me-2"></i>Get In Touch</button>
+          </div>
+          <div class="d-flex gap-4 mt-4 pt-3" style="border-top:1px solid rgba(255,255,255,.1)">
+            <div><div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800" class="g-text">7.8</div><div style="color:rgba(255,255,255,.5);font-size:.78rem;text-transform:uppercase;letter-spacing:1px">CGPA</div></div>
+            <div><div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800" class="g-text">5</div><div style="color:rgba(255,255,255,.5);font-size:.78rem;text-transform:uppercase;letter-spacing:1px">Projects</div></div>
+            <div><div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800" class="g-text">4</div><div style="color:rgba(255,255,255,.5);font-size:.78rem;text-transform:uppercase;letter-spacing:1px">Certificates</div></div>
+          </div>
+        </div>
+        <div class="col-lg-5 d-flex justify-content-center mt-5 mt-lg-0">
+          <div style="width:320px;height:320px;border-radius:36px;background:linear-gradient(135deg,#1e293b,#0f172a);border:2px solid rgba(99,102,241,.25);display:flex;align-items:center;justify-content:center;font-size:7rem">🧑‍💻</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-5 bg-white">
+    <div class="container">
+      
+    </div>
+  </section>
+  
+</div>
+
+<!-- ══ ABOUT ══ -->
+<div id="page-about" class="page">
+  <section class="py-5"><div class="container">
+    <div class="mb-4"><span class="stag">About Me</span><h2 class="sec-title">Who Am <span class="g-text">I?</span></h2></div>
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-4">
+        <div class="profile-c">
+          <div class="profile-img">🧑‍💻</div>
+          <div style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:#fff">Shivaram Doulagar</div>
+          <div style="color:var(--a2);font-size:.82rem;font-family:'Syne',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.25rem">B.Tech IT Student</div>
+          <div class="pinfo"><i class="bi bi-geo-alt"></i>Hyderabad, Telangana</div>
+          <div class="pinfo"><i class="bi bi-envelope"></i>shivaramdoulagar16@gmail.com</div>
+          <div class="pinfo"><i class="bi bi-telephone"></i>+91 9346241290</div>
+          
+          <div class="pinfo"><i class="bi bi-calendar"></i>2024 – 2028 Batch</div>
+          <hr style="border-color:rgba(255,255,255,.1);margin:1rem 0"/>
+          <div class="d-flex justify-content-center gap-3"><a href="#" class="text-white fs-5"><i class="bi bi-github"></i></a><a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a><a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a></div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <p class="text-muted mb-3" style="line-height:1.8">I'm a second-year B.Tech Information Technology student at <strong>Vasavi College of Engineering</strong>. Passionate about building web applications, exploring AI/ML, and competing in hackathons. My journey started with Python scripting and evolved into full-stack development, cloud computing, and data science.</p>
+        <div class="accordion" id="aa">
+          <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1"><i class="bi bi-person-badge me-2" style="color:var(--a)"></i>Personal Information</button></h2>
+            <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#aa"><div class="accordion-body"><div class="row g-3"><div class="col-6"><strong>Name:</strong><br/><span class="text-muted">Shivaram Doulagar</span></div><div class="col-6"><strong>DOB:</strong><br/><span class="text-muted">16 FEB 2007</span></div><div class="col-6"><strong>Nationality:</strong><br/><span class="text-muted">Indian</span></div><div class="col-6"><strong>Languages:</strong><br/><span class="text-muted">English, Hindi, Telugu</span></div></div></div></div></div>
+          <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2"><i class="bi bi-briefcase me-2" style="color:var(--a)"></i>Interests & Hobbies</button></h2>
+            <div id="a2" class="accordion-collapse collapse" data-bs-parent="#aa"><div class="accordion-body d-flex flex-wrap gap-2"><span class="bga">🏆 Competitive Programming</span><span class="bga">🤖 Artificial Intelligence</span><span class="bga">📱 App Development</span><span class="bga">🎮 Game Dev</span><span class="bga">📚 Tech Blogging</span><span class="bga">🎸 Music</span></div></div></div>
+          
+        </div>
+        <div class="alert d-flex align-items-center gap-2 mt-3 py-2" style="background:rgba(34,211,238,.08);border:1.5px solid rgba(34,211,238,.25);border-radius:10px"><i class="bi bi-info-circle-fill" style="color:var(--a2)"></i><span style="font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;color:#0891b2">Currently looking for internship opportunities.</span></div>
+        <div class="d-flex gap-3 mt-4 flex-wrap">
+          <button class="btn btn-g" onclick="go('qual')"><i class="bi bi-mortarboard me-2"></i>My Qualifications</button>
+          <button class="btn btn-g" onclick="go('skills')"><i class="bi bi-bar-chart me-2"></i>View Skills</button>
+          <button class="btn btn-g" onclick="go('contact')"><i class="bi bi-envelope me-2"></i>Contact Me</button>
+        </div>
+      </div>
+    </div>
+  </div></section>
+</div>
+
+<!-- ══ QUALIFICATIONS ══ -->
+<div id="page-qual" class="page">
+  <section class="py-5"><div class="container">
+    <div class="mb-4"><span class="stag">Education</span><h2 class="sec-title">My <span class="g-text">Qualifications</span></h2></div>
+    <div class="card-c mb-4" style="padding:0;overflow:hidden">
+      <div class="p-3 border-bottom" style="font-family:'Syne',sans-serif;font-weight:800"><i class="bi bi-journal-bookmark me-2" style="color:var(--a)"></i>Academic Record</div>
+      <div class="table-responsive"><table class="table table-hover mb-0">
+        <thead><tr><th>Qualification</th><th>Institution</th><th>Year</th><th>Score</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><strong>B.Tech IT</strong></td><td>Vasavi College of Engineering</td><td>2024–28</td><td><span class="bga">7.8 CGPA</span></td><td><span class="bgw">Pursuing</span></td></tr>
+          <tr><td><strong>Intermediate (12th)</strong></td><td>Sri Chaitanya Junior College</td><td>2022–24</td><td><span class="bga">94.3%</span></td><td><span class="bgs">Completed</span></td></tr>
+          <tr><td><strong>SSC (10th)</strong></td><td>sri chaithanya School, Mahabubabad</td><td>2010–2022</td><td><span class="bga">9.6 GPA</span></td><td><span class="bgs">Completed</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="card-c mb-4" style="padding:0;overflow:hidden">
+      
+    
+      <div class="col-md-6"><div class="card-c"><h6 style="font-family:'Syne',sans-serif;font-weight:800;margin-bottom:1rem"><i class="bi bi-journal-code me-2" style="color:var(--a)"></i>Key Courses</h6>
+        <div class="lgitem"><i class="bi bi-check-circle" style="color:#16a34a"></i>Data Structures & Algorithms</div>
+        <div class="lgitem"><i class="bi bi-check-circle" style="color:#16a34a"></i>Database Management Systems</div>
+        <div class="lgitem"><i class="bi bi-hourglass-split" style="color:#b45309"></i>Machine Learning (Ongoing)</div>
+      </div></div>
+    </div>
+    <div class="d-flex gap-3 flex-wrap">
+      <button class="btn btn-g" onclick="go('about')"><i class="bi bi-arrow-left me-2"></i>Back to About</button>
+      <button class="btn btn-g" onclick="go('skills')"><i class="bi bi-bar-chart me-2"></i>View My Skills</button>
+    </div>
+  </div></section>
+</div>
+
+<!-- ══ SKILLS ══ -->
+<div id="page-skills" class="page">
+  <section class="py-5"><div class="container">
+    <div class="mb-4"><span class="stag">Expertise</span><h2 class="sec-title">My <span class="g-text">Skills</span></h2></div>
+    <div class="row g-4">
+      <div class="col-lg-6"><div class="card-c"><h6 style="font-family:'Syne',sans-serif;font-weight:800;margin-bottom:1.5rem"><i class="bi bi-code-slash me-2" style="color:var(--a)"></i>Technical Skills</h6><div id="sb"></div></div></div>
+      <div class="col-lg-6">
+        <div class="card-c mb-4"><h6 style="font-family:'Syne',sans-serif;font-weight:800;margin-bottom:1rem"><i class="bi bi-tools me-2" style="color:var(--a)"></i>Tools & Platforms</h6>
+          <div class="lgitem"><i class="bi bi-git" style="color:#f05032"></i><span>Python</span><span class="ms-auto bgs">Learning</span></div>
+          <div class="lgitem"><i class="bi bi-cloud" style="color:#0ea5e9"></i><span>JavaScript</span><span class="ms-auto bgw">Learning</span></div>
+          <div class="lgitem"><i class="bi bi-box" style="color:#2496ed"></i><span>MYSQL</span><span class="ms-auto bgw">Learning</span></div>
+          <div class="lgitem"><i class="bi bi-terminal" style="color:var(--a)"></i><span>Linux </span><span class="ms-auto bga">Familiar</span></div>
+          <div class="lgitem"><i class="bi bi-layout-text-window" style="color:#007acc"></i><span>VS Code </span><span class="ms-auto bgs">Proficient</span></div>
+        </div>
+        <div class="card-c"><h6 style="font-family:'Syne',sans-serif;font-weight:800;margin-bottom:1rem"><i class="bi bi-person-check me-2" style="color:var(--a)"></i>Soft Skills</h6>
+          <div class="d-flex flex-wrap gap-2"><span class="bga"><i class="bi bi-chat-dots me-1"></i>Communication</span><span class="bga"><i class="bi bi-people me-1"></i>Teamwork</span><span class="bga"><i class="bi bi-lightbulb me-1"></i>Problem Solving</span><span class="bga"><i class="bi bi-clock me-1"></i>Time Management</span><span class="bga"><i class="bi bi-arrow-repeat me-1"></i>Adaptability</span><span class="bga"><i class="bi bi-graph-up me-1"></i>Leadership</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex gap-3 mt-4 flex-wrap">
+      <button class="btn btn-g" onclick="go('qual')"><i class="bi bi-arrow-left me-2"></i>Qualifications</button>
+      <button class="btn btn-g" onclick="go('certs')"><i class="bi bi-patch-check me-2"></i>My Certifications</button>
+    </div>
+  </div></section>
+</div>
+
+<!-- ══ CERTIFICATIONS ══ -->
+<div id="page-certs" class="page">
+  <section class="py-5"><div class="container">
+    <div class="mb-4"><span class="stag">Credentials</span><h2 class="sec-title">My <span class="g-text">Certifications</span></h2></div>
+    <div class="row g-4">
+
+  <!-- Cisco Certification -->
+  <div class="col-md-6 col-lg-4">
+    <div class="cert-card">
+      <div class="cert-head" style="background:linear-gradient(135deg,#0ea5e9,#0284c7)">🌐</div>
+      <div class="p-3">
+        <div class="text-muted" style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px">
+          Cisco
+        </div>
+        <h6 style="font-weight:800;margin:.4rem 0">
+          Cisco Networking Certification
+        </h6>
+        <p class="text-muted small mb-3">
+          Networking fundamentals, IP addressing, routing, and basic security concepts.
+        </p>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <span class="bgs"><i class="bi bi-check-circle me-1"></i></span>
+          <span class="text-muted small">2025</span>
+        </div>
+
+        <div class="d-flex gap-2">
+          <a href="certificates/cisco.pdf" target="_blank" class="btn btn-sm btn-g flex-fill">
+            <i class="bi bi-eye me-1"></i>View
+          </a>
+          <a href="#" class="btn btn-sm btn-outline-secondary flex-fill">
+            <i class="bi bi-link-45deg me-1"></i>Verify
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NPTEL Certification -->
+  <div class="col-md-6 col-lg-4">
+    <div class="cert-card">
+      <div class="cert-head" style="background:linear-gradient(135deg,#22c55e,#16a34a)">📘</div>
+      <div class="p-3">
+        <div class="text-muted" style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px">
+          NPTEL
+        </div>
+        <h6 style="font-weight:800;margin:.4rem 0">
+          NPTEL Certification
+        </h6>
+        <p class="text-muted small mb-3">
+          Completed course with strong understanding of theoretical and practical concepts.
+        </p>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <span class="bgs"><i class="bi bi-check-circle me-1"></i></span>
+          <span class="text-muted small">2025</span>
+        </div>
+
+        <div class="d-flex gap-2">
+          <a href="certificates/nptel.pdf" target="_blank" class="btn btn-sm btn-g flex-fill">
+            <i class="bi bi-eye me-1"></i>View
+          </a>
+          <a href="#" class="btn btn-sm btn-outline-secondary flex-fill">
+            <i class="bi bi-link-45deg me-1"></i>Verify
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hackathon Certification -->
+  <div class="col-md-6 col-lg-4">
+    <div class="cert-card">
+      <div class="cert-head" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">🏆</div>
+      <div class="p-3">
+        <div class="text-muted" style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px">
+          Hackathon
+        </div>
+        <h6 style="font-weight:800;margin:.4rem 0">
+          Hackathon Participation Certificate
+        </h6>
+        <p class="text-muted small mb-3">
+          Participated in technical hackathon building innovative solutions and working in a team environment.
+        </p>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <span class="bgs"><i class="bi bi-check-circle me-1"></i></span>
+          <span class="text-muted small">2026</span>
+        </div>
+
+        <div class="d-flex gap-2">
+          <a href="certificates/hackathon.pdf" target="_blank" class="btn btn-sm btn-g flex-fill">
+            <i class="bi bi-eye me-1"></i>View
+          </a>
+          <a href="#" class="btn btn-sm btn-outline-secondary flex-fill">
+            <i class="bi bi-link-45deg me-1"></i>Details
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+    <div class="d-flex gap-3 mt-4 flex-wrap">
+      <button class="btn btn-g" onclick="go('skills')"><i class="bi bi-arrow-left me-2"></i>Back to Skills</button>
+      <button class="btn btn-g" onclick="go('contact')"><i class="bi bi-envelope me-2"></i>Contact Me</button>
+    </div>
+  </div></section>
+</div>
+
+<!-- ══ CONTACT ══ -->
+<div id="page-contact" class="page">
+  <section class="py-5"><div class="container">
+    <div class="mb-4"><span class="stag">Get In Touch</span><h2 class="sec-title">Contact <span class="g-text">Me</span></h2></div>
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="card-c mb-3"><div class="ibox"><i class="bi bi-geo-alt"></i></div><h6 style="font-family:'Syne',sans-serif;font-weight:800">Location</h6><p class="text-muted small mb-0">Hyderabad, Telangana, India</p></div>
+        <div class="card-c mb-3"><div class="ibox" style="background:rgba(34,211,238,.1);color:var(--a2)"><i class="bi bi-envelope"></i></div><h6 style="font-family:'Syne',sans-serif;font-weight:800">Email</h6><p class="text-muted small mb-0">shivaramdoulagar16@gmail.com</p></div>
+        <div class="card-c mb-3"><div class="ibox" style="background:rgba(34,197,94,.1);color:#16a34a"><i class="bi bi-telephone"></i></div><h6 style="font-family:'Syne',sans-serif;font-weight:800">Phone</h6><p class="text-muted small mb-0">+91 9346241290</p></div>
+        <div class="card-c"><h6 style="font-family:'Syne',sans-serif;font-weight:800;margin-bottom:1rem">Connect With Me</h6><div class="d-flex gap-2"><a href="#" class="btn btn-outline-secondary rounded-circle" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center"><i class="bi bi-github"></i></a><a href="#" class="btn btn-outline-secondary rounded-circle" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center"><i class="bi bi-linkedin"></i></a><a href="#" class="btn btn-outline-secondary rounded-circle" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center"><i class="bi bi-twitter-x"></i></a></div></div>
+      </div>
+      <div class="col-lg-8"><div class="card-c">
+        <h5 style="font-family:'Syne',sans-serif;font-weight:800;margin-bottom:1.75rem">Send A Message</h5>
+        <div id="sA" class="alert d-flex align-items-center gap-2 mb-3 py-2" style="background:rgba(34,197,94,.08);border:1.5px solid rgba(34,197,94,.3);border-radius:10px;display:none!important"><i class="bi bi-check-circle-fill" style="color:#16a34a"></i><span style="font-family:'Syne',sans-serif;font-weight:700;color:#16a34a">Message sent! I'll get back to you soon. 🎉</span></div>
+        <form id="cf" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6"><label class="flabel">Full Name <span style="color:#ef4444">*</span></label><div class="input-group"><span class="igt"><i class="bi bi-person"></i></span><input type="text" class="form-c" id="fn" placeholder="Shivaram"/></div><div class="err" id="fne">Full name is required.</div></div>
+            <div class="col-md-6"><label class="flabel">Email Address <span style="color:#ef4444">*</span></label><div class="input-group"><span class="igt"><i class="bi bi-envelope"></i></span><input type="email" class="form-c" id="fe" placeholder="you@email.com"/></div><div class="err" id="fee">Enter a valid email address.</div></div>
+            <div class="col-md-6"><label class="flabel">Mobile Number <span style="color:#ef4444">*</span></label><div class="input-group"><span class="igt"><i class="bi bi-telephone"></i></span><input type="tel" class="form-c" id="fp" placeholder="10-digit number"/></div><div class="err" id="fpe">Enter a valid 10-digit mobile number.</div></div>
+            <div class="col-md-6"><label class="flabel">Subject <span style="color:#ef4444">*</span></label><div class="input-group"><span class="igt"><i class="bi bi-chat-dots"></i></span><input type="text" class="form-c" id="fs" placeholder="What's this about?"/></div><div class="err" id="fse">Subject is required.</div></div>
+            <div class="col-12"><label class="flabel">Message <span style="color:#ef4444">*</span></label><textarea class="form-c" id="fm" rows="5" placeholder="Write your message here..." style="resize:vertical"></textarea><div class="err" id="fme">Message cannot be empty.</div></div>
+            <div class="col-12 d-flex gap-3 flex-wrap">
+              <button type="button" class="btn btn-g px-4" onclick="vf()"><i class="bi bi-send me-2"></i>Send Message</button>
+              <button type="button" class="btn btn-g" onclick="go('home')"><i class="bi bi-house me-2"></i>Back to Home</button>
+            </div>
+          </div>
+        </form>
+      </div></div>
+    </div>
+  </div></section>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6"><div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;background:var(--g);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">shivaram </div><p class="small mt-1 mb-0">B.Tech IT Student | Hyderabad, India</p></div>
+      <div class="col-md-6 text-md-end mt-2 mt-md-0"><p class="small mb-2">© 2026 Shivaram Doulagar <span style="color:var(--a)">Bootstrap 5</span> ❤️</p>
+        <div class="d-flex justify-content-md-end gap-3 flex-wrap">
+          <a onclick="go('home')" style="cursor:pointer">Home</a><a onclick="go('about')" style="cursor:pointer">About</a><a onclick="go('qual')" style="cursor:pointer">Qualifications</a><a onclick="go('skills')" style="cursor:pointer">Skills</a><a onclick="go('certs')" style="cursor:pointer">Certifications</a><a onclick="go('contact')" style="cursor:pointer">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODALS -->
+<div class="modal fade" id="m1" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" style="font-family:'Syne',sans-serif;font-weight:800">☁️ AWS Cloud Practitioner</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body p-4"><div style="background:var(--g);border-radius:14px;padding:2.5rem;text-align:center;margin-bottom:1.25rem"><div style="font-size:3.5rem">🏅</div><h5 style="font-family:'Syne',sans-serif;color:#fff;font-weight:800;margin:1rem 0 .25rem">Certificate of Achievement</h5><h4 style="font-family:'Syne',sans-serif;color:#fff;font-weight:800">Aryan Sharma</h4><p style="color:rgba(255,255,255,.8);font-size:.85rem;margin:0">AWS Cloud Practitioner · Dec 2023</p></div><div class="d-flex gap-2"><span class="bgs"><i class="bi bi-check-circle me-1"></i>Verified</span><span class="bga">Cert ID: AWS-2023-00124</span></div></div><div class="modal-footer border-0"><button class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button><a href="#" class="btn btn-g"><i class="bi bi-download me-1"></i>Download PDF</a></div></div></div></div>
+<div class="modal fade" id="m2" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" style="font-family:'Syne',sans-serif;font-weight:800">🐍 Python for Everybody</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body p-4"><div style="background:linear-gradient(135deg,#ff6b35,#f7c948);border-radius:14px;padding:2.5rem;text-align:center;margin-bottom:1.25rem"><div style="font-size:3.5rem">🏅</div><h5 style="font-family:'Syne',sans-serif;color:#fff;font-weight:800;margin:1rem 0 .25rem">Certificate of Completion</h5><h4 style="font-family:'Syne',sans-serif;color:#fff;font-weight:800">Aryan Sharma</h4><p style="color:rgba(255,255,255,.8);font-size:.85rem;margin:0">Python for Everybody · Jun 2023 · Coursera/Google</p></div><div class="d-flex gap-2"><span class="bgs"><i class="bi bi-check-circle me-1"></i>Verified</span><span class="bga">5 Courses Completed</span></div></div><div class="modal-footer border-0"><button class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button><a href="#" class="btn btn-g"><i class="bi bi-download me-1"></i>Download PDF</a></div></div></div></div>
+<div class="modal fade" id="m3" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" style="font-family:'Syne',sans-serif;font-weight:800">🤖 Machine Learning Specialization</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body p-4"><div style="background:linear-gradient(135deg,#06b6d4,#3b82f6);border-radius:14px;padding:2.5rem;text-align:center;margin-bottom:1.25rem"><div style="font-size:3.5rem">🎓</div><h5 style="font-family:'Syne',sans-serif;color:#fff;font-weight:800;margin:1rem 0 .25rem">In Progress</h5><h4 style="font-family:'Syne',sans-serif;color:#fff;font-weight:800">Aryan Sharma</h4><p style="color:rgba(255,255,255,.8);font-size:.85rem;margin:0">ML Specialization · DeepLearning.AI · 2024</p></div><div class="progress mb-2"><div class="progress-bar" style="width:65%;background:linear-gradient(135deg,#06b6d4,#3b82f6)">65% Complete</div></div><small class="text-muted">Course 2 of 3 in progress</small></div><div class="modal-footer border-0"><button class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button></div></div></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const navMap={home:'n-home',about:'n-about',qual:'n-qual',skills:'n-skills',certs:'n-skills',contact:'n-contact'};
+function go(p){
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.nav-link[id^="n-"]').forEach(x=>x.classList.remove('active'));
+  document.getElementById('page-'+p)?.classList.add('active');
+  const el=document.getElementById(navMap[p]);if(el)el.classList.add('active');
+  const nb=document.getElementById('nb');if(nb.classList.contains('show'))new bootstrap.Collapse(nb).hide();
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(p==='skills')buildBars();
+}
+function buildBars(){
+  const c=document.getElementById('sb');if(c.dataset.done)return;c.dataset.done='1';
+  [['Python',85],['JavaScript / React',78],['HTML & CSS / Bootstrap',90],['SQL / MySQL',72],['Java',65],['Node.js / Express',60]]
+  .forEach(([n,v])=>{c.innerHTML+=`<div class="mb-3"><div class="skill-label"><span>${n}</span><span>${v}%</span></div><div class="progress"><div class="progress-bar" style="width:0%" data-w="${v}%"></div></div></div>`;});
+  setTimeout(()=>c.querySelectorAll('.progress-bar').forEach(b=>b.style.width=b.dataset.w),60);
+}
+function vf(){
+  const r=[{i:'fn',e:'fne',ok:v=>v.trim(),m:'Full name is required.'},{i:'fe',e:'fee',ok:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),m:'Enter a valid email.'},{i:'fp',e:'fpe',ok:v=>/^\d{10}$/.test(v.trim()),m:'Enter a 10-digit mobile number.'},{i:'fs',e:'fse',ok:v=>v.trim(),m:'Subject is required.'},{i:'fm',e:'fme',ok:v=>v.trim(),m:'Message cannot be empty.'}];
+  let ok=true;
+  r.forEach(({i,e,ok:fn,m})=>{const el=document.getElementById(i),er=document.getElementById(e);if(!fn(el.value)){el.classList.add('is-invalid');el.classList.remove('is-valid');er.textContent=m;er.classList.add('show');ok=false;}else{el.classList.remove('is-invalid');el.classList.add('is-valid');er.classList.remove('show');}});
+  if(ok){const s=document.getElementById('sA');s.style.display='flex';document.getElementById('cf').reset();document.querySelectorAll('#cf .form-c').forEach(e=>e.classList.remove('is-valid','is-invalid'));setTimeout(()=>s.style.display='none',5000);}
+}
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.form-c').forEach(el=>el.addEventListener('input',()=>{el.classList.remove('is-invalid');const e=document.getElementById(el.id+'e');if(e)e.classList.remove('show');}));});
+</script>
+</body>
+</html>
